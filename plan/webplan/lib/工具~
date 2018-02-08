@@ -1,0 +1,19 @@
+流量统计
+http://tongji.baidu.com/data/
+
+discuz插件：
+智能云采集csdn123_news 免费插件
+
+管理中心注册
+312141830 meng631011
+
+应用中心
+http://addon.discuz.com/index.php?view=plugins&f_order=create&price=1
+
+
+有用的插件：
+QQ登录(需要申请qq互联)   智能云采集csdn123_news 飞速采集（网站需要认证）
+
+本采集插件只采集了文字部分内容,图片部分直接调用了远程的图片,
+由于很多网站采取了防盗图的功能,所以有部分网站,采集的内容图片会无法显示.
+如需要采集图片,请用discuz自带的下载远程图片功能.

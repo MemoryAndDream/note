@@ -1,0 +1,7 @@
+用流行框架会好些
+sql注入  userName = "1' OR '1'='1";   是目前最流行的攻击？
+缓冲区溢出注入
+
+https://security.tencent.com/index.php/blog/msg/113
+
+

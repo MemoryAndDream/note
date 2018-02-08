@@ -1,0 +1,21 @@
+反链 外链
+谷歌规范
+https://support.google.com/webmasters/answer/6001094?hl=zh-Hans&ref_topic=4631146
+
+丰富的内容以及分享选项
+向搜索引擎提交map，rebots等文件 在别的网站放自己的链接
+合理清晰的结构 层次鲜明 适合爬虫
+
+
+
+使用防垃圾评论工具  如谷歌的验证码服务reCAPTCHA
+rel="nofollow"  标签避免评论计入PageRank网页排名
+
+借助社区维护   强大的网站需要自我成长与维护！！！！    网聚人的力量
+
+
+移动版适应性https://www.google.com/webmasters/tools/mobile-friendly/?hl=zh-CN  如html可以自适应屏幕   自适应设计
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+适应性 JavaScript
+
+chrome开发者工具可以模拟手机设备

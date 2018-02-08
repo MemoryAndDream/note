@@ -1,0 +1,99 @@
+Dim ll=0.36'向右跳约束系数
+Dim rr=0.38'向左跳约束系数
+Dim 跳跃步数=0
+Dim 亮点坐标(),小人坐标()
+
+Randomize
+
+Do
+    KeepCapture 
+    跳跃步数 = 跳跃步数 + 1
+    亮点坐标 = 寻找亮点()
+    小人坐标 = 寻找小人()
+    If 亮点坐标(0) > 0 Then 
+        Call 检测光点(亮点坐标(0), 亮点坐标(1))
+    Else 
+        Call 按压屏幕()
+    End If
+    TracePrint 跳跃步数
+    Delay 2000 + Int((200 - (-200) + 1) * Rnd() - 200)
+Loop
+
+////////思路模块//////////////////////////////////////////////////////
+Sub 按压屏幕()
+    Dim intX=小人坐标(0)
+    Dim intY=小人坐标(1)
+    Dim a,b,c,tt,rt
+    Dim i
+    Dim k=0.308'向右跳系数
+    If intX > 0 Then 
+        i=ll
+        If intX > 540 Then '小人在屏幕右半侧
+            k = 0.328'向左跳系数
+            i=rr
+        End If
+        a = Abs(intX - 562.25)
+        b = Abs(intY - 979)
+        c = (Sqr(a ^ 2 + b ^ 2))
+//	TracePrint a,b,c
+        tt = a / k
+        tt = 逼近(tt, c, i)
+        rt=c/tt
+        TracePrint rt,tt
+        ShowMessage "没找到点"
+        Touch 749, 1504, tt
+    End If    
+End Sub
+
+Function 逼近(tt, c, i)
+	Dim t=tt
+	Dim rt=c/t
+	Do
+		rt=c/t
+		If rt > i Then 
+			t = t + rt / t
+		ElseIf rt < i Then
+		 	t = t - rt / t
+		End If
+	Loop Until Abs(rt - i) < 0.00001
+	逼近=t
+End Function
+
+Sub 检测光点(x,y)
+	Dim intX=小人坐标(0)
+        Dim intY=小人坐标(1)
+        Dim a,b,c,tt,rt	
+        a = Abs(intX - x)
+        b = Abs(intY - y)
+   	c = (Sqr(a ^ 2 + b ^ 2))
+   	TracePrint a,b,c
+   	ShowMessage "找到点了"
+   	Touch 749, 1504,c*1.393
+End Sub
+
+/////////图色模块//////////////////////////////////////////////////////////////
+Function 寻找亮点()
+	Dim x,y
+	FindMultiColor 128, 717, 912, 1142, "F5F5F5","-19|-6|F5F5F5,18|-1|F5F5F5", 0, 1, x, y
+//	TracePrint x,y
+	If x < 0 Then 
+		FindMultiColor 128, 717, 912, 1142, "F5F5F5","-19|-5|F5F5F5,19|-3|F5F5F5", 0, 1, x, y
+	End If
+	If x < 0 Then 
+		FindMultiColor 128, 717, 912, 1142, "F5F5F5","-17|-9|F5F5F5,18|-3|F5F5F5", 0, 1, x, y
+	End If
+//	TracePrint x,y
+	寻找亮点=array(x,y)
+End Function
+
+Function 寻找小人()
+	Dim intX,intY
+	FindMultiColor 3, 788, 1073, 1513, "613837", "-38|1|492B2B,37|0|51363A,-1|-118|3A3434,0|17|663C36,-1|-156|76484F", 0, 0.95, intX, intY
+//	TracePrint intX,intY
+        If intX < 0 Then     	
+    	    FindMultiColor 3, 788, 1073, 1513, "633939", "-37|0|492B2B,37|0|53383C,1|-187|3D3534", 0, 0.9, intX, intY
+    	    TracePrint intX,intY
+        End If
+//      TracePrint intX,intY
+	寻找小人=array(intX, intY)
+End Function

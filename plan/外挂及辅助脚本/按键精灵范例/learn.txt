@@ -1,0 +1,75 @@
+随机点击
+Randomize 
+x1 = 10
+y1 = 20
+x2 = 100
+y2 = 120
+x=Int((x2 -x1 + 1) * Rnd + x1)
+y=Int((y2 -y1 + 1) * Rnd + y1)
+MoveTo x,y
+LeftClick 1
+
+
+
+Dim 打怪线程, 卖东西线程, 自动跑路线程
+打怪线程 = 0
+卖东西线程 = 0
+自动跑路线程 = 0
+TracePrint "脚本已经初始化完成!"
+Do
+key = WaitKey
+Select case key
+Case 117 //如果按F6,就停止卖东西和自动跑路线程,开始打怪
+If 卖东西线程 <> 0 Then //如果卖东西线程已启动,那么停止它
+StopThread 卖东西线程
+End If
+If 自动跑路线程 <> 0 Then //如果自动跑路线程已启动,那么停止它
+StopThread 自动跑路线程
+End If
+打怪线程=BeginThread(打怪)
+Case 118 //如果按F7,就停止打怪和自动跑路线程,开始卖东西
+If 打怪线程 <> 0 Then //如果打怪线程已启动,那么停止它
+StopThread 打怪线程
+End If
+If 自动跑路线程 <> 0 Then //如果自动跑路线程已启动,那么停止它
+StopThread 自动跑路线程
+End If
+卖东西线程=BeginThread(卖东西)
+Case 119//如果按F8,就停止卖东西和打怪线程,开始自动跑路
+If 打怪线程 <> 0 Then //如果打怪线程已启动,那么停止它
+StopThread 打怪线程
+End If
+If 卖东西线程 <> 0 Then //如果卖东西线程已启动,那么停止它
+StopThread 卖东西线程
+End If
+自动跑路线程 = BeginThread(自动跑路)
+Case 120 //如果按F9,按键精灵脚本停止
+TracePrint "F9脚本停止!"
+ExitScript
+Case Else
+Delay 500
+End Select
+Delay 500
+loop
+Sub 打怪()
+TracePrint "开始打怪"
+/*
+把打怪脚本的代码都复制到这个子程序里面
+*/
+End Sub
+Sub 卖东西()
+TracePrint "开始卖东西"
+/*
+把卖东西脚本的代码都复制到这个子程序里面
+*/
+End Sub
+Sub 自动跑路()
+TracePrint "开始自动跑路"
+/*
+把自动跑路脚本的代码都复制到这个子程序里面
+*/
+End Sub
+
+
+
+识别数字可以用大漠插件

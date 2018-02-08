@@ -1,0 +1,16 @@
+vsftpd服务与系统用户是相互关联的，例如我们创建一个名为test 的系统用户，那么此用户在默认配置的情况下就可以实现登录
+
+ftp可以批量添加用户   newusers批量添加用户。
+
+ftp和linux用户管理命令是一样的
+
+建用户：在root用户下：
+
+useradd -d /home/test test //增加用户test，并制定test用户的主目录为/home/test
+passwd test //为test设置密码
+
+3、更改用户相应的权限设置：
+
+usermod -s /sbin/nologin test //限定用户test不能telnet，只能ftp
+usermod -s /sbin/bash test //用户test恢复正常
+usermod -d /test test //更改用户test的主目录为/test

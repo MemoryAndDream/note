@@ -1,0 +1,21 @@
+Mon, 07 Nov 2016 09:55:31 game.py[line:113] INFO ai尝试比例:0.5
+Mon, 07 Nov 2016 09:55:31 game.py[line:114] INFO 开局资金:30
+Mon, 07 Nov 2016 09:56:52 game.py[line:149] INFO ai尝试比例:1
+Mon, 07 Nov 2016 09:56:52 game.py[line:150] INFO 开局资金:100
+Mon, 07 Nov 2016 09:58:25 game.py[line:160] INFO 你坚持了1144亏光前最高收益79
+Mon, 07 Nov 2016 10:42:46 game.py[line:150] INFO ai尝试比例:1
+Mon, 07 Nov 2016 10:42:46 game.py[line:151] INFO 开局资金:100
+Mon, 07 Nov 2016 10:44:07 game.py[line:161] INFO 你坚持了1045亏光前最高收益24
+Mon, 07 Nov 2016 10:49:36 game.py[line:150] INFO ai尝试比例:1
+Mon, 07 Nov 2016 10:49:36 game.py[line:151] INFO 开局资金:100
+Mon, 07 Nov 2016 10:51:43 game.py[line:114] INFO ai尝试比例:0.5
+Mon, 07 Nov 2016 10:51:43 game.py[line:115] INFO 开局资金:30
+Mon, 07 Nov 2016 10:51:43 db_connect.py[line:58] ERROR UPDATE coreDB SET eventCount=eventCount*%s,choiceBestCount=choiceBestCount*%s;
+Mon, 07 Nov 2016 10:51:43 db_connect.py[line:59] ERROR <class '_mysql_exceptions.ProgrammingError'>, (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%s,choiceBestCount=choiceBestCount*%s' at line 1")
+Mon, 07 Nov 2016 10:52:54 game.py[line:114] INFO ai尝试比例:0.5
+Mon, 07 Nov 2016 10:52:54 game.py[line:115] INFO 开局资金:30
+Mon, 07 Nov 2016 10:57:51 game.py[line:114] INFO ai尝试比例:0.5
+Mon, 07 Nov 2016 10:57:51 game.py[line:115] INFO 开局资金:30
+Mon, 07 Nov 2016 11:22:19 game.py[line:112] INFO ai尝试比例:0.5
+Mon, 07 Nov 2016 11:22:19 game.py[line:113] INFO 开局资金:30
+Mon, 07 Nov 2016 11:22:22 game.py[line:123] INFO 你坚持了26亏光前最高收益0

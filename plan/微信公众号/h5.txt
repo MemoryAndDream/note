@@ -1,0 +1,28 @@
+测试类h5
+脑筋急转弯
+一分钟破案
+弱智测试
+
+
+h5 具有强大的朋友圈推广能力，所以要么直接断路，要么就爆炸了
+
+要求朋友圈里显示的要有区别，像支付宝关键词那样的，有炫耀性，炫耀自己的所谓个性
+
+
+如果用户在微信客户端中访问第三方网页，公众号可以通过微信网页授权机制，来获取用户基本信息，进而实现业务逻辑。
+
+如果考虑的范围只是微信内置浏览器和手机上的浏览器应用（safari、chrome）的话，差不多有几个不同点吧：最突出的差别，前端要注意分享功能！上线之前，每个页面基本都要review一边分享功能是不是完善的。微信最近提供了新的接口，所以以后会有更多与微信贴合紧密的特性。html5接口上的差异。safari和chrome的话提供的html5接口会更多，而微信内置浏览器的接口比较少，印象最深的是usermedia。前几天在项目里还发现，微信里固定定位的支持还是不够好，safari在这点上现在好很多了。所以如果想让 web 应用在微信里体验更好一些的话，iscroll类的模块是免不了的。微信浏览器的兼容性问题，在android上比较明显。印象比较深的是三星的机型上不支持background-size-cover，必须使用-webkit-background-size才行。小米的输入框比较难搞。。。开发、调试上的问题。android chrome比较好，有远程调试功能。微信里面基本木有办法。遇到棘手的问题，一般会使用modernizr来做特性检测，或者使用远程log工具调试。相关工具有：Console.Re | Remote JavaScript Development ConsoleSentry: Track exceptions with modern error logging for JavaScript, Python, Ruby, Java, and Node.jsModernizr Helper
+
+
+有不少定制平台了，像云来，www.gaohuodong.me,maka,初页……
+看看他们的案例会不会帮到你~
+
+
+目前看来微信html5 定位是一个强大的推广工具
+
+商业制作一般用易企秀之类的工具
+不然就相当于一个网页制作了
+对于前端不行的开发者来说，还是找一个工具，然后封装接口比较靠谱
+可以考虑先用工具生成一个，再改。
+
+3110102498@zju.edu.cn

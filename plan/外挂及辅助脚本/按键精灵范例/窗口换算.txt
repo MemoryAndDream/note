@@ -1,0 +1,15 @@
+方法1
+Plugin q1=Window.MousePoint()
+Plugin Window.Move(q,0,0)
+这个时候窗口坐标就是屏幕坐标.
+方法2
+Plugin q1=Window.MousePoint()
+//得到鼠标所在窗口句柄
+VBSCall GetCursorPos(x,y)
+//获取当前鼠标位置
+Plugin s=BGKM5.ScrToCli(x,y)
+//换算
+a = split(s,"|")
+x=a(0)
+y=a(1)
+//切割数组

@@ -1,0 +1,41 @@
+加163的debian源
+ apt-get install apache2
+    a2enmod rewrite
+vim /etc/apache2/sites-available/anzhuangjingyan.com.conf
+
+<VirtualHost *:80>
+ServerAdmin admin@anzhuangjingyan.com
+ServerName anzhuangjingyan.com
+ServerAlias anzhuangjingyan.com
+DocumentRoot /srv/www/anzhuangjingyan.com/public_html/
+ErrorLog /srv/www/anzhuangjingyan.com/logs/error.log
+CustomLog /srv/www/anzhuangjingyan.com/logs/access.log combined
+<Directory /srv/www>
+	Options Indexes FollowSymLinks
+	AllowOverride None
+	Require all granted
+</Directory>
+</VirtualHost>
+
+mkdir -p /srv/www/anzhuangjingyan.com/public_html
+mkdir /srv/www/anzhuangjingyan.com/logs
+
+a2ensite anzhuangjingyan.com
+
+    chown -R www-data:www-data /srv/www/
+
+    apt-get install mysql-server
+
+    apt-get install php5 php-pear
+
+
+
+wget 'http://download.comsenz.com/DiscuzX/3.2/Discuz_X3.2_SC_UTF8.zip'
+
+apt-get install zip
+
+unzip xxx
+
+cp -R upload/* public_html
+
+chown -R www-data:www-data /srv/www/

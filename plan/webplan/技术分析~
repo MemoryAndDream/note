@@ -1,0 +1,16 @@
+pythonweb未来是一门很有前途的东西，适合快速迭代，但是现在不行，因为缺少环境。
+javaweb不了解，不作评论
+个人网站首选绝对是php，有强大的模板
+
+后台服务可以考虑用python 如thift
+
+
+简单php整合python  ppython  将调用Python的模块，函数，参数等序列化，通过socket发送给Python，然后Python反序列化后通过exec执行获取结果，并把结果发送出去。
+https://code.google.com/archive/p/ppython/
+
+不同语言通信  要么用RESTfulapi通信，要么用rpc通信方式（如thrift 用二进制传输，效率更高）
+
+
+
+http://www.chinaz.com站长之家
+http://lusongsong.com 博客

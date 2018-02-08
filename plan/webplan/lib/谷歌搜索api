@@ -1,0 +1,11 @@
+http://www.cnblogs.com/yilongm/p/5508038.html
+我创建的api 凭据
+AIzaSyAq77Tdf_OgUf48hBx3bL8u484rMBiewF4
+
+自定义搜索
+    var cx = '015683343364678843910:v5n04nr94am';
+
+https://www.googleapis.com/customsearch/v1?key={自定义搜索的凭据}&cx={你的CX}&num=1&alt=atom&q={关键字}
+
+
+https://www.googleapis.com/customsearch/v1?key=AIzaSyAq77Tdf_OgUf48hBx3bL8u484rMBiewF4&cx=015683343364678843910:v5n04nr94am&num=1&alt=atom&q=2016
