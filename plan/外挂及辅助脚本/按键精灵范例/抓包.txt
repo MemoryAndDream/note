@@ -1,0 +1,12 @@
+Fiddler默认的代理地址是127.0.0.1，端口是8888。此时打开IE浏览器，默认是通过代理地址上网的，所以可以对所有网络访问抓包。
+所以要设置模拟器代理
+fiddler只是一个代理，需要将手机的代理指向 PC 机，不能互相访问是不行的。
+
+ipconfig看本机ip，192.168.0.61 再在模拟器模拟的安卓无线中长按设置无线
+
+设置代理 手动
+
+fiddler Tools -> Fiddler Options…-> Connections页签，选中Allowremote computers to connect
+设置完之后，重启Fiddler，不然可能不会更新你刚刚的配置。
+
+应该要开启https解码才行
