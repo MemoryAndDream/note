@@ -28,4 +28,143 @@ Cocos Creator 可以说脱胎自 Cocos2d-JS，它们的 API 一脉相承，有很多相同的部分，但
 在 Cocos Creator 中，子节点坐标系的坐标原点就是父节点的坐标位置，也就是其锚点的位置。
 
 脚本相关
-ctor
+cc.Class({
+    name: "sprite"
+});
+
+ctor 构造方法
+extends 继承
+
+// 父类
+var Shape = cc.Class();
+
+// 子类
+var Rect = cc.Class({
+    extends: Shape
+});
+
+声明属性properties 
+
+属性有类型时需要声明构造函数
+
+数组声明bools: [cc.Boolean],
+
+属性可以设置默认的get/set方法
+
+this.node 获取组件绑定的节点
+
+this.getComponent(cc.Label) 获取组件同一节点上的其他组件，类名可传可不传
+
+对用户定义的组件而言，类名就是脚本的文件名，并且区分大小写。例如 "SinRotate.js" 里声明的组件，类名就是 "SinRotate"。
+
+组件需要访问别的组件信息时可以设置属性里加cc.Node，然后再界面拖动关联过去
+properties: {
+        // 声明 player 属性
+        player: {
+            default: null,
+            type: cc.Node
+        }
+    }
+如果类型直接就是
+ player: {
+            default: null,
+            type: Player
+        }
+    },
+那拖动关联会直接就是节点下的组件Player
+
+如果节点太多，可以用var cannons = this.node.children;节省关联，直接通过父物体获得所有子物体
+this.node.getChildByName("Cannon 01");//cc.find("Cannon 01/Barrel/SFX", this.node);
+
+全局对象 window.Global
+定义window.Global = {
+    backNode: null,
+    backLabel: null,
+};
+赋值Global.backNode = this.node;
+
+
+如果不用全局变量，可以用exports和require在不同节点中传递
+module.exports = {
+    backNode: null,
+    backLabel: null,
+};
+var xx= require("xxx模块名");
+
+cc.find("Canvas/Menu/Back"); 全局查找节点，从根节点逐级查找
+
+常用节点和组件接口
+this.node.active = false/true  //节点上所有组件脚本关闭，执行对应脚本的onDisable /onEnable方法 
+
+http://docs.cocos.com/creator/manual/zh/scripting/basic-node-api.html 如更改锚点位置，节点大小等
+组件方法：
+this.node：该组件所属的节点实例
+this.enabled：是否每帧执行该组件的 update 方法，同时也用来控制渲染组件是否显示
+update(dt)：作为组件的成员方法，在组件的 enabled 属性为 true 时，其中的代码会每帧执行
+onLoad()：组件所在节点进行初始化时（节点添加到节点树时）执行
+start()：会在该组件第一次 update 之前执行，通常用于需要在所有组件的 onLoad 初始化完毕后执行的逻辑
+lateUpdate 每一帧更新之后
+
+动态增加节点
+   var node = new cc.Node('Sprite');
+    var sp = node.addComponent(cc.Sprite);
+    node.parent = this.node;
+
+克隆节点
+    var scene = cc.director.getScene();
+    var node = cc.instantiate(this.target);
+    node.parent = scene;
+
+创建预制节点
+销毁节点
+node.destroy()
+
+场景切换
+cc.director.loadScene("MyScene");
+
+引擎同时只会运行一个场景，当切换场景时，默认会将场景内所有节点和其他实例销毁。除了常驻节点
+设置常驻节点：cc.game.addPersistRootNode(myNode);
+常驻节点里的组件就能一直用，可以用来保存数据
+可以用这样的方法来储存玩家信息，或下一个场景初始化时需要的各种数据。
+
+场景回调函数
+cc.director.loadScene("MyScene", onSceneLaunched);
+
+场景预加载
+cc.director.preloadScene("table", function () {
+    cc.log("Next scene preloaded");
+});
+之后在合适的时间调用 loadScene, 就可以真正切换场景。
+cc.director.loadScene("table");
+
+资源分成两种，一种叫做 Asset，一种叫做 Raw Asset。
+cc.SpriteFrame, cc.AnimationClip, cc.Prefab 等资源都属于 Asset。
+URL 字符串指代资源叫做 Raw Asset。
+
+瓦片资源：类似坦克大战的地图块
+
+贝塞尔曲线：通过制定点绘制曲线
+
+creator和cocos2d-js代码逻辑貌似差不多的
+
+require相当于import
+当你在脚本中声明了一个组件，Creator 会默认把它导出，其它脚本直接 require 这个模块就能使用这个组件。
+但是普通脚本就需要声明module.exports=xx
+require 实际上获取的是目标脚本内的 module.exports 变量，module.exports 默认是一个空对象（{}），可以直接往里面增加新的字段。  module.exports.foo =xx
+
+this.player.getComponent('Player') ！！节点里取组件！
+
+
+Canvas可以被称为画布节点或渲染根节点  场景对应画布Canvas
+
+广告以及分享：
+集成第三方sdk，在js中调用即可
+分享可以用安卓自己的分享功能，也可以第三方sdk  分享文字，图片，或者超链接
+一个节点上的碰撞组件，无论如何都是不会相互进行碰撞检测的
+
+碰撞系统：
+两个组件间自动检测，如果碰撞就调用onCollisionEnter方法
+
+creator软件自带的测试项目里的testlist场景加了一堆的测试例子
+
+cc.v2 创造一个向量  有.x .y属性

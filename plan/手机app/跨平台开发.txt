@@ -1,0 +1,1 @@
+既然打算做游戏了那就用cocos creator+js吧

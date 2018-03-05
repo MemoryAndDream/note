@@ -1,0 +1,28 @@
+flappy bird http://blog.csdn.net/lingxi__y/article/details/73195826
+
+地板滚动
+
+两块地板循环滚动，https://www.2cto.com/kf/201504/395031.html 
+
+就是一张滚完换另一张
+核心代码：
+this.groundNode[0].x += Constant.GROUND_VX; // // 单位时间地板移动速度 GROUND_VX: -5,
+        this.groundNode[1].x += Constant.GROUND_VX;
+        if (this.groundNode[0].x + this._width/2 < - this._size.width/2) {
+            this.groundNode[0].x = this.groundNode[1].x + this._width - 5;
+        }
+        if (this.groundNode[1].x + this._width/2 < - this._size.width/2) {
+            this.groundNode[1].x = this.groundNode[0].x + this._width - 5;
+        }
+
+
+
+触摸事件
+
+cc.eventManager.addListener({
+            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+            onTouchBegan: function(touch, event) {
+                var touchLoc = touch.getLocation();
+                if (touchLoc.x >= cc.winSize.width/2) {
+                    self.accLeft = false;
+                    self.accRight = true;
