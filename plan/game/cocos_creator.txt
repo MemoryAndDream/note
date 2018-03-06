@@ -168,3 +168,25 @@ Canvas可以被称为画布节点或渲染根节点  场景对应画布Canvas
 creator软件自带的测试项目里的testlist场景加了一堆的测试例子
 
 cc.v2 创造一个向量  有.x .y属性
+
+动作系统
+http://docs.cocos.com/creator/manual/zh/scripting/actions.html
+CCEaseBackIn   加速反弹
+
+对于物理计算较为简单的情况，我们推荐用户直接使用碰撞组件，这样可以避免加载物理引擎并构建物理世界的运行时开销。而物理引擎提供了更完善的交互接口和刚体、关节等已经预设好的组件。可以根据需要来选择适合自己的物理系统。
+so 感觉还是不要物理引擎好
+
+
+碰撞组件分组：
+首先要在属性里修改节点的分组，然后在设置里修改碰撞分组
+
+刚体组件
+
+配乐可以类似小时候警察抓小偷的那种
+
+
+已经run的动作和常量类似，要重新赋值才行
+	this.YSpeed= -this.YSpeed
+	this.node.stopAction(this.action);
+	this.action = cc.repeatForever(cc.moveBy(1, cc.p(0, -this.YSpeed)));
+	this.node.runAction(this.action);

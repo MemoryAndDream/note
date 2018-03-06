@@ -1,0 +1,24 @@
+http://blog.csdn.net/lcj1008/article/details/52669579
+市场列表，以下是可以维护的市场，同时支持个人开发者的。
+
+
+
+
+
+Google Play	https://play.google.com/apps/publish/	25美元注册后就可以用了，先发布后审核，所以不发是很快的。但是规则相当严格，如果后期发现，就可能下架应用包括封号。鉴于国内很多应用使用了友盟，切记，不要采集mac信息，不要使用应用内升级，把这些功能都给移除了。
+应用宝	http://open.qq.com/	下载比较大，很多一些小市场都会抓取这个市场的应用。所以一些小时候可以不用投入精力去维护
+360手机助手	http://dev.360.cn/	交流QQ群456903732 不支持个人申请首发，下载量不错。审核较快。
+百度手机助手	http://app.baidu.com/	下载量比较大，包含3个市场。百度手机助手，91助手，安卓市场。可以关键词投放，查看关键词搜索下载，支持A/B测试，应用秀等
+三星应用市场	http://seller.samsungapps.com/	还不错，有些量。只是会区分是否使用了google play，如果市场了，就不会发布到中国区了
+小米市场	https://dev.mi.com	交流QQ群69358836 支持申请首发，整体来说下载量还可以，但是下载量确实不如以前了。审核速度一般24小时之内，比较快。
+豌豆荚	http://developer.wandoujia.com/	需要版权证明，手钱一份文件扫描一下上传，还有身份证扫描件
+PP助手	http://dev.pp.cn/	阿里系的市场都在这里了
+搜狗开发者平台	http://zhushou.sogou.com/open/	还不错的一个平台
+魅族市场	http://developer.meizu.com/	截图和别人家格式不一样，还有及时更新，长期版本跟不上，就会被临时下架
+木蚂蚁市场	http://dev.mumayi.com/	
+酷市场开发者平台	https://developer.coolapk.com/	量不大，但是，是国内格调最高的APP市场了。被很多人认为是国内版本的GooglePlay，用户活跃度比较高。
+锤子开发者平台	http://dev.smartisan.com/	我也不知道T3以后还有没有锤子了
+乐视开发者平台	http://open.letv.com/dev-web/	需要扫描件，上面包括印指纹
+YunOS开发者中心	http://appdev.yunos.com/	算Android的吗？上传APK即可
+
+
