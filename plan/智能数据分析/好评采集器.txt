@@ -1,0 +1,6 @@
+https://rate.tmall.com/list_detail_rate.htm?itemId=562914619591&spuId=914794046&sellerId=305358018&order=3&currentPage=1
+
+
+可以指定类目或者商品采集
+
+短促爬虫

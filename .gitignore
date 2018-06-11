@@ -1,0 +1,18 @@
+<<<<<<< HEAD
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+=======
+node_modules/
+yarn-error.log
+.DS_Store
+>>>>>>> 515b1e562e0736577fe4bd6821a7acdedec8b490

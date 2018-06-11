@@ -1,1 +1,3 @@
 既然打算做游戏了那就用cocos creator+js吧
+
+webapp 最简单的形式是做一个网站，然后封装，比如安卓webview就能直接调浏览器打开

@@ -184,9 +184,32 @@ so 感觉还是不要物理引擎好
 
 配乐可以类似小时候警察抓小偷的那种
 
+缓动动作不加就是匀速直线
 
-已经run的动作和常量类似，要重新赋值才行
-	this.YSpeed= -this.YSpeed
-	this.node.stopAction(this.action);
-	this.action = cc.repeatForever(cc.moveBy(1, cc.p(0, -this.YSpeed)));
-	this.node.runAction(this.action);
+默认物理引擎(0, -320) 像素/秒^2
+update(dt)中的dt应该是表示上一帧到这一帧花费的时间
+
+_cb properties里加_算内部变量？
+
+element.x -= speed;  可以直接移动，不用action
+
+
+cc.p(xx,yy)快速创建一个vec2对象，拥有x,y属性
+
+动画制作
+绑定，添加Animation Clip组件，用动画编辑器编辑Animation Clip组件
+https://www.jianshu.com/p/9874f917602d 绑定动画组件 添加clips
+onload的时候play动画
+
+
+碰撞同时碰两个的时候要注意
+
+源码都在github上
+
+AR (Anchor Relative) 
+
+节点才有坐标 组件是绑定在上面的控制元件
+this.ground.y + this.ground.height/2;
+x,y是节点的x,y值 ，而getPostion()获得的则是父坐标系下的x,y值
+
+所以this.node调用的是本 节点 ，this.xx才是调用的自己脚本里的值。
