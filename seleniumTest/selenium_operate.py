@@ -9,6 +9,7 @@
 import selenium
 import os
 from selenium import webdriver
+
 #文档https://www.cnblogs.com/taceywong/p/6602927.html?utm_source=tuicool&utm_medium=referral
 
 
@@ -55,6 +56,33 @@ class ChromeOperate():
         file = self.driver.findElement(self.find_element_by_name("filename"));
         file.sendKeys("E:\\testfile.jpg");
 
+
+'''
+验证码截取
+driver.get("http://www.google.com");
+WebElement ele = driver.findElement(By.id("hplogo"));
+
+// Get entire page screenshot
+File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+BufferedImage  fullImg = ImageIO.read(screenshot);
+
+// Get the location of element on the page
+Point point = ele.getLocation();
+
+// Get width and height of the element
+int eleWidth = ele.getSize().getWidth();
+int eleHeight = ele.getSize().getHeight();
+
+// Crop the entire page screenshot to get only element screenshot
+BufferedImage eleScreenshot= fullImg.getSubimage(point.getX(), point.getY(),
+    eleWidth, eleHeight);
+ImageIO.write(eleScreenshot, "png", screenshot);
+
+// Copy the element screenshot to disk
+File screenshotLocation = new File("C:\\images\\GoogleLogo_screenshot.png");
+FileUtils.copyFile(screenshot, screenshotLocation);
+
+'''
 
 if __name__ == '__main__':
     cop = ChromeOperate(executable_path=r'C:\Users\Administrator\Desktop\chromedriver.exe')

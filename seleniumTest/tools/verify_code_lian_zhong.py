@@ -9,7 +9,7 @@ import urllib
 import urllib2
 import mimetools, mimetypes
 import os, stat,sys
-
+import json
 class Callable:
     def __init__(self, anycallable):
         self.__call__ = anycallable
@@ -70,7 +70,7 @@ class MultipartPostHandler(urllib2.BaseHandler):
     multipart_encode = Callable(multipart_encode)
     https_request = http_request
 
-def main(api_username,api_password,img_url,api_post_url,yzm_min='',yzm_max='',yzm_type='',tools_token=''):
+def main(api_username,api_password,img_url,api_post_url,yzm_min='',yzm_max='',yzm_type='',tools_token='',img_path = ''):
     import tempfile
 
     validatorURL = api_post_url
@@ -82,22 +82,38 @@ def main(api_username,api_password,img_url,api_post_url,yzm_min='',yzm_max='',yz
         yzm_max = '4'
 
     def validateFile(url):
-        temp = tempfile.mkstemp(suffix=".png")
-        os.write(temp[0],opener.open(url).read())
-        params = { "user_name"      : '%s' % api_username,
-                   "user_pw"        : "%s" % api_password ,
-                   "yzm_minlen"     : "%s" % yzm_min , #最短长度
-                   "yzm_maxlen"     : "%s" % yzm_max , #最长长度
-                   "yzmtype_mark"   : "%s" % yzm_type ,#captchaType：识别类型 https://www.jsdati.com/docs/price
-                   "zztool_token"   : "%s" % tools_token ,
-                   "upload"          : open(temp[1], "rb")
-                 }
+        if img_path:
+            params = {"user_name": '%s' % api_username,
+                      "user_pw": "%s" % api_password,
+                      "yzm_minlen": "%s" % yzm_min,  # 最短长度
+                      "yzm_maxlen": "%s" % yzm_max,  # 最长长度
+                      "yzmtype_mark": "%s" % yzm_type,  # captchaType：识别类型 https://www.jsdati.com/docs/price
+                      "zztool_token": "%s" % tools_token,
+                      "upload": open(img_path, "rb")
+                      }
+        else:
+            temp = tempfile.mkstemp(suffix=".png")
+            os.write(temp[0],opener.open(url).read())
+            params = { "user_name"      : '%s' % api_username,
+                       "user_pw"        : "%s" % api_password ,
+                       "yzm_minlen"     : "%s" % yzm_min , #最短长度
+                       "yzm_maxlen"     : "%s" % yzm_max , #最长长度
+                       "yzmtype_mark"   : "%s" % yzm_type ,#captchaType：识别类型 https://www.jsdati.com/docs/price
+                       "zztool_token"   : "%s" % tools_token ,
+                       "upload"          : open(temp[1], "rb")
+                     }
 
         ''''''
-
-        return opener.open(validatorURL, params).read()
+        result = opener.open(validatorURL, params).read()
+        result =  json.loads(result)
+        if result.get('result'):
+            return result['data']['val']
+        else:
+            return ''
 
     return validateFile(img_url)
+
+
 
 if __name__=="__main__":
     print  main('vobile123',
