@@ -1,0 +1,2 @@
+基于python2 selenium的验证码识别脚本
+运行seleniumTest.py测试
