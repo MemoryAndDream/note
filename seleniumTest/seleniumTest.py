@@ -26,6 +26,8 @@ print executable_path
 import cron_task
 import json
 import time
+from selenium.webdriver.common.keys import Keys
+
 
 def taobao():
     print executable_path
@@ -70,7 +72,10 @@ def verify_code():
     cop.input_words(psd_input, 'vobile@123')
     cop.input_words(captcha_input, code)
 
-    time.sleep(100)
+    time.sleep(3)
+    captcha_input.send_keys(Keys.ENTER )
+
+    time.sleep(200)
 
 
 if __name__ == '__main__':

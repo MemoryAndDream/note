@@ -57,26 +57,10 @@ class ChromeOperate():
         file.sendKeys("E:\\testfile.jpg");
 
 
+
 '''
 验证码截取
-driver.get("http://www.google.com");
-WebElement ele = driver.findElement(By.id("hplogo"));
-
-// Get entire page screenshot
-File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-BufferedImage  fullImg = ImageIO.read(screenshot);
-
-// Get the location of element on the page
-Point point = ele.getLocation();
-
-// Get width and height of the element
-int eleWidth = ele.getSize().getWidth();
-int eleHeight = ele.getSize().getHeight();
-
-// Crop the entire page screenshot to get only element screenshot
-BufferedImage eleScreenshot= fullImg.getSubimage(point.getX(), point.getY(),
-    eleWidth, eleHeight);
-ImageIO.write(eleScreenshot, "png", screenshot);
+链式操作ActionChains(driver).move_to_element(menu).click(hidden_submenu).perform()
 
 // Copy the element screenshot to disk
 File screenshotLocation = new File("C:\\images\\GoogleLogo_screenshot.png");
