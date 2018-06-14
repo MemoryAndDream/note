@@ -62,9 +62,9 @@ def get_auth_code(driver,codeEelement):
 
 def verify_code():
     cop = ChromeOperate('https://www.jsdati.com/login',executable_path= executable_path)
+    sys.exit()
     ele = cop.find_element_by_id('login-captcha-img')
     code =   get_auth_code(cop.driver,ele)
-    print code
     name_input = cop.find_element_by_name('username')
     psd_input = cop.find_element_by_name('password')
     captcha_input = cop.find_element_by_name('captcha')
@@ -74,6 +74,7 @@ def verify_code():
 
     time.sleep(3)
     captcha_input.send_keys(Keys.ENTER )
+    #这里没有做异常处理，比如验证码识别失败应该多点几次
 
     time.sleep(200)
 

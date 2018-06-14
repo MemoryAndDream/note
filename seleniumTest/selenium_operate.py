@@ -23,7 +23,8 @@ class ChromeOperate():
             username = getpass.getuser()
             default_path = 'C:\Users\%s\AppData\Local\Google\Chrome\User Data'%username
             if os.path.exists(default_path):
-                option.add_argument('--user-data-dir=%s' % default_path)
+                #option.add_argument('--user-data-dir=%s' % default_path)
+                pass
         option.add_argument('--start-maximized')
         self.driver = webdriver.Chrome(executable_path=executable_path,chrome_options=option)
 
