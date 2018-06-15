@@ -32,7 +32,7 @@ class YiMaPhoneVerify(object):
         return ''
 
     def login(self):
-        data = 'action=login&username=%s&password=%s'%('mengzaizai','aaaaaa')
+        data = 'action=login&username=%s&password=%s'%(username,password)
         rsp = requests.get('http://api.fxhyd.cn/UserInterface.aspx?%s'%data)
         return rsp.text.split('|')[1]
 

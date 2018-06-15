@@ -9,10 +9,14 @@
 import selenium
 import os
 from selenium import webdriver
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 
 #文档https://www.cnblogs.com/taceywong/p/6602927.html?utm_source=tuicool&utm_medium=referral
 
-
+#中文apihttp://selenium-python-zh.readthedocs.io/en/latest/
 class ChromeOperate():
     def __init__(self,url='',executable_path='',User_data_dir=''):
         option = webdriver.ChromeOptions()
@@ -53,10 +57,17 @@ class ChromeOperate():
     def click_by_id(self,id):
         self.driver.find_element_by_id(id).click()
 
-    def send_file(self,path):
-        file = self.driver.findElement(self.find_element_by_name("filename"));
-        file.sendKeys("E:\\testfile.jpg");
+    def send_file(self,element,path):
+        element.sendKeys(path);
 
+    def wait_element(self,element_id):
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, element_id))
+        )
+
+    def get_title(self):
+        print(self.driver.title)
+        return self.driver.title
 
 
 '''
