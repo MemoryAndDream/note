@@ -71,7 +71,6 @@ def verify_code():
     cop.input_words(name_input,'vobile123')
     cop.input_words(psd_input, 'vobile@123')
     cop.input_words(captcha_input, code)
-
     time.sleep(3)
     captcha_input.send_keys(Keys.ENTER )
     #这里没有做异常处理，比如验证码识别失败应该多点几次
