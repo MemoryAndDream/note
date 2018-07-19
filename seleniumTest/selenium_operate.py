@@ -18,7 +18,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 #中文apihttp://selenium-python-zh.readthedocs.io/en/latest/
 class ChromeOperate():
-    def __init__(self,url='',executable_path='',User_data_dir=''):
+    def __init__(self,url='',executable_path='',User_data_dir='',arguments=[]):
         option = webdriver.ChromeOptions()
         if User_data_dir:
             option.add_argument( '--user-data-dir=%s'%User_data_dir)  # 设置成用户自己的数据目录
@@ -30,6 +30,10 @@ class ChromeOperate():
                 #option.add_argument('--user-data-dir=%s' % default_path)
                 pass
         option.add_argument('--start-maximized')
+        option.add_argument('google-base-url=%s' % 'https://www.baidu.com/')
+        for argument in arguments:
+            option.add_argument(argument)
+        if not executable_path:executable_path=r'C:\Users\Administrator\Desktop\chromedriver.exe'
         self.driver = webdriver.Chrome(executable_path=executable_path,chrome_options=option)
 
         if url:self.open(url)
@@ -38,11 +42,18 @@ class ChromeOperate():
     def open(self,url):
         self.driver.get(url)
 
+    def title(self):
+        self.title=self.driver.title
+        return self.title
+
+    def quit(self):
+        self.driver.quit()
+
     def find_element_by_name(self,name):
         return self.driver.find_element_by_name(name)
 
-    def find_elements_by_xpath(self,xpath):
-        return self.find_elements_by_xpath(xpath)
+    def find_elements_by_xpath(self,xpath): #貌似不能用/text
+        return self.driver.find_elements_by_xpath(xpath)
 
     def find_element_by_id(self,id):
         try:
@@ -69,6 +80,8 @@ class ChromeOperate():
         print(self.driver.title)
         return self.driver.title
 
+    def refresh(self):
+        self.driver.refresh()  #
 
 '''
 验证码截取
