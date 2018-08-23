@@ -27,7 +27,7 @@ driver =so.driver
 # driver = webdriver.PhantomJS()
 time.sleep(5)
 
-time_range = 60*60*5
+time_range = 60*60*14
 start_time = time.time()  # url,hash?
 print('打开链接')
 driver.get('https://www.baidu.com/s?wd=python')
@@ -54,7 +54,7 @@ def save_record(hash,value,index=0):
     cursor.execute(query)
     conn.commit()
 
-while True:
+while True:  #需要考虑到网络断开之类的问题
     # 打印网页渲染后的源代码
     infos = so.find_elements_by_xpath('//table[@class="c-table opr-toplist-table"]/tbody//tr')
     for info in infos:

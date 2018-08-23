@@ -11,7 +11,7 @@ DATABASES = {
         'NAME': 'deng',
         'USER':'root',
         'PASSWORD':'meng631011',
-        'HOST':'47.96.238.217',
+        'HOST':'47.98.96.148',
         'PORT':'3306',
     }
 }

@@ -6,3 +6,5 @@ maven + spring +mybatis + struts2 + log4j 编程
 
 
 医疗系统，首先必须是医学知识本身
+
+前端+后端+爬虫+运营
